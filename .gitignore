@@ -1,0 +1,13 @@
+# 依赖 / 构建产物
+node_modules/
+*.log
+
+# 工作区里可能出现的本地策略文件（不要上传个人策略）
+.barricade.json
+.barricade/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

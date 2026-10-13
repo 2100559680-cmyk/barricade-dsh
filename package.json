@@ -1,0 +1,34 @@
+{
+  "name": "barricade-dsh",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Barricade 的 dsh 适配版：在 tools/pre-execute waterfall 上对破坏性命令返回 deny/ask，确认走 harness 的标准 approval 流程。",
+  "type": "module",
+  "main": "plugin.js",
+  "exports": {
+    ".": "./plugin.js",
+    "./plugin.js": "./plugin.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "plugin.js",
+    "cordis.patch.yml",
+    "vendor/",
+    "README.md",
+    "upstream-plugin.js.orig"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "safety",
+    "guard"
+  ]
+}

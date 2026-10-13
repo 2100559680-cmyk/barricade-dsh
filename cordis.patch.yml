@@ -1,0 +1,19 @@
+# Barricade 适配版（dsh）的配置层补丁。
+#
+# `install_bundle` / `dsh plugin add` 安装本包后，dsh 按此文件向运行配置插入插件行。
+#
+# 可选 config（全部可省略）：
+#   mode         ask（默认）= 高危/致命命令走 harness 标准 approval 确认；deny = 直接硬拒绝，不询问
+#   level        relaxed | balanced | vigilant，覆盖策略文件里的等级
+#   tools        只拦截这些工具名（默认 bash / bash_persistent / pwsh / pwsh_persistent 等）
+#   commandPath  命令文本的点路径（默认依次尝试 arguments.command → args.command → input.command → command）
+#   policyFiles  { user, project } 显式指定策略文件路径
+#
+# 策略细节（allowlist / overrides / 自定义规则 / 等级）请写策略文件，不要写死在这里：
+#   ~/.barricade/barricade.json      用户级
+#   <cwd>/.barricade.json            项目级（优先）
+- insert:
+    - id: barricade
+      name: barricade-dsh
+      config:
+        mode: ask
